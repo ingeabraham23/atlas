@@ -1,62 +1,82 @@
-// Login.js
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import "./Login.css";
 
-// eslint-disable-next-line react/prop-types
-const Login = ({ setIsLoggedIn }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function Login() {
 
-  const predefinedUsers = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' },
-    { username: 'user3', password: 'password3' },
-    { username: 'user4', password: 'password4' },
-    { username: 'user5', password: 'password5' },
-  ];
+    const [correo, setCorreo] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [cargando, setCargando] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const user = predefinedUsers.find(
-      (user) => user.username === username && user.password === password
+    const iniciarSesion = async (e) => {
+
+        e.preventDefault();
+
+        setError("");
+        setCargando(true);
+
+        try {
+
+            await signInWithEmailAndPassword(
+                auth,
+                correo,
+                password
+            );
+
+        // eslint-disable-next-line no-unused-vars
+        } catch (err) {
+
+            setError("Correo o contraseña incorrectos.");
+
+        }
+
+        setCargando(false);
+
+    };
+
+    return (
+
+        <div className="login">
+
+            <form
+                className="login-card"
+                onSubmit={iniciarSesion}
+            >
+
+                <h2>Atlas</h2>
+
+                <input
+                    type="email"
+                    placeholder="Correo"
+                    value={correo}
+                    onChange={(e)=>setCorreo(e.target.value)}
+                    required
+                />
+
+                <input
+                    type="password"
+                    placeholder="Contraseña"
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    required
+                />
+
+                {error && <p className="error">{error}</p>}
+
+                <button>
+
+                    {cargando ? "Entrando..." : "Iniciar sesión"}
+
+                </button>
+
+            </form>
+
+        </div>
+
     );
 
-    if (user) {
-      setIsLoggedIn(true);
-      localStorage.setItem('isLoggedIn', 'true');
-    } else {
-      setError('Nombre de usuario o contraseña incorrectos');
-    }
-  };
-
-  return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
-  );
-};
+}
 
 export default Login;

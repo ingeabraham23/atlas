@@ -18,9 +18,9 @@ function Datos() {
     );
     if (confirmed) {
       try {
-        await Dexie.delete("LilithUnidadesDB"); // Elimina la base de datos
+        await Dexie.delete("YorkUnidadesDB"); // Elimina la base de datos
         // Vuelve a inicializar la base de datos
-        const newDb = new Dexie("LilithUnidadesDB");
+        const newDb = new Dexie("YorkUnidadesDB");
         newDb.version(1).stores({
           unidades: "++id,ruta,tipo,numeroUnidad,horaRegistro",
         });

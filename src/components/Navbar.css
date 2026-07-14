@@ -75,13 +75,13 @@
 }
 
 .nav-icon {
-  font-size: 16px;
+  font-size: 14px;
   color: #1976d2;
   transition: color 0.2s ease;
 }
 
 .nav-label {
-  font-size: 9px;
+  font-size: 8px;
 }
 
 .nav-link:hover {
@@ -96,6 +96,21 @@
 .nav-item.active .nav-icon,
 .nav-item.active .nav-label {
   color: #0d47a1;
+}
+
+.btn-cerrar {
+  margin: 5px;
+  padding: 4px 7px;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.btn-cerrar:hover {
+  background: #b71c1c;
 }
 
 

@@ -1,15 +1,15 @@
 import React from "react";
 
 const AcercaDe = () => {
-  const version = "1.0.3";
-  const fechaActualizacion = "26 de junio de 2025";
+  const version = "1.1.0";
+  const fechaActualizacion = "13 de julio de 2026";
 
   return (
     <div style={styles.container}>
       <h2 style={styles.titulo}>Información de la Aplicación</h2>
 
       <div style={styles.section}>
-        <p><strong>Nombre:</strong> Lilith</p>
+        <p><strong>Nombre:</strong> Checador</p>
         <p><strong>Versión:</strong> {version}</p>
         <p><strong>Última actualización:</strong> {fechaActualizacion}</p>
       </div>
@@ -23,10 +23,10 @@ const AcercaDe = () => {
       <div style={styles.section}>
         <p><strong>Tecnologías utilizadas:</strong></p>
         <ul style={styles.lista}>
-          <li>React.js</li>
-          <li>Dexie.js (IndexedDB)</li>
-          <li>React Router</li>
-          <li>CSS personalizado</li>
+          <li>Java</li>
+          <li>Mongodb</li>
+          <li>Tailwind</li>
+          <li>Firebase</li>
         </ul>
       </div>
 

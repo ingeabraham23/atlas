@@ -7,7 +7,7 @@ import './TablaUnidades.css';
 
 const TablaUnidades = ({ onUnidadClick, pagos }) => {
   // Lista de unidades que deben estar deshabilitadas desde el principio
-  const unidadesDeshabilitadasInicialmente = [2, 3, 15, 17, 23, 26, 32, 44, 45, 48, 49, 50]; // Ejemplo de unidades deshabilitadas
+  const unidadesDeshabilitadasInicialmente = [49, 50]; // Ejemplo de unidades deshabilitadas
 
 
   const esUnidadDeshabilitada = (unidad) => 
