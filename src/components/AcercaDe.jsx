@@ -2,7 +2,7 @@ import React from "react";
 
 const AcercaDe = () => {
   const version = "1.1.0";
-  const fechaActualizacion = "13 de julio de 2026";
+  const fechaActualizacion = "14 de julio de 2026";
 
   return (
     <div style={styles.container}>

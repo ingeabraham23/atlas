@@ -18,9 +18,9 @@ function Datos() {
     );
     if (confirmed) {
       try {
-        await Dexie.delete("YorkUnidadesDB"); // Elimina la base de datos
+        await Dexie.delete("AtlasUnidadesDB"); // Elimina la base de datos
         // Vuelve a inicializar la base de datos
-        const newDb = new Dexie("YorkUnidadesDB");
+        const newDb = new Dexie("AtlasUnidadesDB");
         newDb.version(1).stores({
           unidades: "++id,ruta,tipo,numeroUnidad,horaRegistro",
         });

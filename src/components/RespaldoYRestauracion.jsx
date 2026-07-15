@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import db from "../db";
 import "./RespaldoYRestauracion.css";
@@ -218,6 +217,7 @@ function RespaldoYRestauracion() {
           "No se ha seleccionado ningún archivo para la restauración."
         );
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       // Maneja los errores de manera adecuada, por ejemplo, mostrando un mensaje al usuario
       toast.error("Error al restaurar la base de datos:");
